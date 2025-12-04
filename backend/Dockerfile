@@ -4,6 +4,10 @@ WORKDIR /app
 # Copie les fichiers de build pour télécharger les dépendances
 COPY build.gradle.kts settings.gradle.kts gradlew /app/
 COPY gradle /app/gradle
+
+# Donner les droits pour executer gradlew
+RUN chmod +x gradlew
+
 # Télécharge les dépendances
 RUN ./gradlew dependencies
 # Copie le reste du code source
